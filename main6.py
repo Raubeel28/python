@@ -40,7 +40,7 @@ while True:
     break
   
   while True:
-   time= int(input("Enter your time"))
+   time = int(input("Enter your time"))
   if timel< 0:
     print ("time cannot be less than zero")
   else:
