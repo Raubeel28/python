@@ -1,20 +1,10 @@
-principal=0
-time = 0
-rate= 0
-while principal <=0: 
-  principal= float(input ("Enter the principal amount"))
-if principal <= 0:
-  print ("Principal cannot be a negative")
+username = input( "Enter your username")
+if len(username)> 12:
+    print ("usernme cannot be more than 12 characters")
+elif not username.find(" ") ==-1:
+    print ("Your username cannot contain spaces")
+elif not username.isalpha():
+    print("Your username cannot contain digits")
+else:
+    print(f"Your are welcome {username}")
 
-while rate <=0: 
- rate= float(input ("Enter the rate amount"))
-if principal <= 0:
-  print ("rate cannot be a negative")
-   
-while time<=0: 
-  time= int(input ("Enter the time amount"))
-if principal <= 0:
-  print ("time cannot be a negative or zero") 
-print (principal)
-print (time)
-print (rate)
