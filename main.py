@@ -14,8 +14,7 @@ if principal <= 0:
 while time<=0: 
   time= int(input ("Enter the time amount"))
 if principal <= 0:
-  print ("time cannot be a negative or zero")
-   
+  print ("time cannot be a negative or zero") 
 print (principal)
 print (time)
 print (rate)
