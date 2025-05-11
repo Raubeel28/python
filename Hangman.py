@@ -43,10 +43,35 @@ def main():
         display_man(wguesses)
         display_hint(hint)
         guess=input("Enter a letter: ").lower()
+        if len(guess)!= 1 or not guess.isalpha():
+            print("Invalid Input")
+            continue
+        if guess in guessletters:
+            print(f"{guess} is already guessed")
+            continue
+        guessletters.add(guess)
         
         if guess in answer: 
             for i in  range (len(answer)):
                 if answer[i] ==guess:
                     hint[i]=guess
+        else:
+            wguesses+=1
+        
+        if "_" not in hint:
+            display_man(wguesses)
+            display_answer(answer)
+            print("You Win!!!😍")
+            running=False
+
+        elif wguesses >= len(art)-1:
+            display_man(wguesses)
+            display_answer(answer)
+            print("You Looose")
+            running=False
+            
+
+
+                    
 if __name__=="__main__":
     main()
