@@ -8,7 +8,7 @@ random.shuffle(key)
 
 
 
-#print(f"chars : {chars}")
+#trint(f"chars : {chars}")
 #print(f"key : {key}")
 # encryption
 plaintext = input("Enter a message to ecrypt:  ")
