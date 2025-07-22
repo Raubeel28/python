@@ -1,14 +1,14 @@
 from email.message import EmailMessage
-
+import os
 import ssl
 import smtplib
 
 email_sender ="safarayussif@gmail.com"
 email_password= "aprv lmjm aoda ckkj"
-email_receiver="abdulhaqqamadu123@gmail.com"
+email_receiver="siniorchair@gmail.com"
 subject="Rabeel's email sender"
-body=""""
- I created an email sender using python language
+body="""""
+Please read the file below
 """
 em =EmailMessage()
 em['From']=email_sender
@@ -16,8 +16,19 @@ em['To']=email_receiver
 em['Subject']=subject
 em.set_content(body)
 
-context=ssl.create_default_context
+with open('research1.pdf','rb') as file:
+    file_data=file.read()
+    file_name=file.name
+    
+em.add_attachment(file_data,maintype='application',filename=file_name,subtype='pdf')
 
-with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
-    smtp.login(email_sender,email_password)
-    smtp.sendmail(email_sender,email_receiver,em.as_string())
+
+
+
+context=ssl.create_default_context
+try:
+     with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
+        smtp.login(email_sender,email_password)
+        smtp.send_message(em)
+except Exception as e:
+    print(f"{e}")
